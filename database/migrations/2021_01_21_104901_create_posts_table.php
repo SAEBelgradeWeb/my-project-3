@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
+//            $table->foreignId('user_id');
             $table->bigInteger('category_id')->unsigned();
             $table->string('title');
             $table->text('body');
