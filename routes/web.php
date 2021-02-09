@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+Route::get('/', [PagesController::class, 'home']);
 
-Route::get('/', function () {
-    $user = \App\Models\User::find(1);
-    dd($user->posts);
-});
+
+
+Route::get('/users', [PagesController::class, 'showAllUsers'])->name('users.index');
+Route::get('/users/{id}', [PagesController::class, 'showOneUser']);
+
